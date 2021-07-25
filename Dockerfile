@@ -1,13 +1,11 @@
-FROM golang:1.15 as builder
+FROM golang
 
-WORKDIR /go/src/app
+COPY main.go .
 
-COPY . .
-
-RUN CGO_ENABLED=0 go build -o /app main.go
+RUN go build main.go
 
 FROM scratch
 
-COPY --from=builder /app /app
+COPY --from=0 /go/main .
 
-CMD ["/app"]
+CMD ["./main"]

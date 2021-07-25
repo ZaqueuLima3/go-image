@@ -1,4 +1,3 @@
-
 ## GO Challenge - Docker
 
 Docker image smaller than 2MB
